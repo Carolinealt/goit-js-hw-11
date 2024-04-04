@@ -1,4 +1,130 @@
-a{
-    color: rebeccapurple;
-    font-size: 50px;
+/* Убираем внутренние отступы */
+ul,
+ol {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 1em;
+    text-align: left;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* Наследуем шрифты для инпутов и кнопок */
+form, input, p,
+button,
+textarea,
+select {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.09em;
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.main-form {
+    text-align: center;
+    margin: 36px;
+}
+
+.main-input {
+    min-width: 272px;
+    border: 1px #808080 solid;
+    max-height: 38px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    display: inline;
+    outline: inherit;
+    color: #2E2F42;
+    transition: border-color 0.15s ease-in;
+}
+
+.main-input::placeholder {
+    color: #808080;
+}
+
+.main-input:hover {
+    border-color: black;
+}
+
+.main-input:focus {
+    border-color: #4E75FF;
+}
+
+.main-btn {
+    background-color: #4E75FF;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 75px;
+    height: 40px;
+    transition: background-color 0.15s ease-in;
+}
+
+.main-btn:focus,
+.main-btn:hover {
+    background-color: #6C8CFF;
+}
+
+.main-p{
+    color: #2E2F42;
+    text-align: center;
+    margin-top: 32px;
+}
+
+.dis-active{
+    display: none;
+}
+
+.active{
+    display: inline;
 }
