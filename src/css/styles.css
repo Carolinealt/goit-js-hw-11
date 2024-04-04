@@ -44,6 +44,7 @@ ol {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 /* Упрощаем работу с изображениями */
@@ -54,7 +55,9 @@ img {
 
 
 /* Наследуем шрифты для инпутов и кнопок */
-form, input, p,
+form,
+input,
+p,
 button,
 textarea,
 select {
@@ -115,16 +118,74 @@ button {
     background-color: #6C8CFF;
 }
 
-.main-p{
+.main-p {
     color: #2E2F42;
     text-align: center;
     margin-top: 32px;
 }
 
-.dis-active{
+.dis-active {
     display: none;
 }
 
-.active{
+.active {
     display: inline;
+}
+
+.gallery {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1400px;
+    margin-bottom: 36px;
+}
+
+.gallery-item {
+    max-width: 100%;
+
+    width: calc((100% - 48px) / 3);
+    outline: #808080 solid 1px;
+}
+
+.image {
+    display: block;
+    height: 155px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.gallery-link {
+    display: inline;
+}
+
+.stats-list {
+    display: flex;
+}
+
+.stats-item {
+    margin: auto;
+
+}
+
+.stats-header {
+    font-family: sans-serif;
+    
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.04em;
+    text-align: center;
+
+}
+
+.stats-p {
+    font-family: sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-align: center;
+
 }
