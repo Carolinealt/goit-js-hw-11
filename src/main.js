@@ -1,6 +1,7 @@
 import fetchImg from './js/pixabay-api';
 import addHTML from './js/render-functions';
 
+
 const refs = {
   form: document.querySelector('.main-form'),
   gallery: document.querySelector('.gallery'),

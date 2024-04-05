@@ -1,9 +1,11 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const gallery = document.querySelector('.gallery');
-{/* <a class="gallery-link" href="${largeImageURL}">  </a> */}
 
 function createMarkupElement({
   webformatURL,
-  // largeImageURL,
+  largeImageURL,
   tags,
   likes,
   views,
@@ -11,9 +13,11 @@ function createMarkupElement({
   downloads,
 }) {
   return `<li class="gallery-item">
-  <img src="${webformatURL}" alt="${tags}" class="image">
-  </img>
+ <a class="gallery-link" href="${largeImageURL}">  
 
+    <img src="${webformatURL}" alt="${tags}" class="image">
+    </img>
+  </a>
         <ul class="stats-list">
             <li class="stats-item">
                 <h3 class="stats-header">Likes</h3>
@@ -35,16 +39,31 @@ function createMarkupElement({
 </li>`;
 }
 
+function joinArr(arr) {
+  return arr.join('');
+}
+
+function addDOM(str) {
+  gallery.insertAdjacentHTML('beforeend', str);
+}
+
+function addLightBox() {
+  const box = new SimpleLightbox('.gallery-link');
+  const a = document.querySelectorAll('.gallery-link');
+  a.forEach(element => {
+    element.SimpleLightbox;
+  });
+}
+
 function addHTML(params) {
   params
-    .then(({ hits }) => {
-      return hits;
-    })
+    .then(({ hits }) => hits)
     .then(hits => {
       return hits.map(createMarkupElement);
     })
-    .then(hit=>{return hit.join('')})
-    .then(hit => gallery.insertAdjacentHTML('beforeend', hit));
+    .then(joinArr)
+    .then(addDOM)
+    .then(addLightBox);
 }
 
 export default addHTML;
