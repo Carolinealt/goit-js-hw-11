@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,9 +7,9 @@
     
     <title>Document</title>
     <script type="module" crossorigin src="/vanilla-app-template/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/vendor-10cb7c31.js">
-    <link rel="stylesheet" href="/vanilla-app-template/assets/vendor-a088063d.css">
-    <link rel="stylesheet" href="/vanilla-app-template/assets/index-3d2ec0f4.css">
+    <link rel="modulepreload" crossorigin href="/vanilla-app-template/assets/vendor-0fc460d7.js">
+    <link rel="stylesheet" href="/vanilla-app-template/assets/vendor-4b066c51.css">
+    <link rel="stylesheet" href="/vanilla-app-template/assets/index-bd9e9196.css">
   </head>
   <body>
     <form class="main-form" action="get">
@@ -19,8 +20,11 @@
         placeholder="Search images..."
       />
       <button class="main-btn" type="submit">Search</button>
-      <p class="main-p dis-active">Loading images, please wait...</p>
     </form>
+    <div class="loader-container">
+      <div class="loader dis-active"></div>
+      <p class="main-p dis-active">Loading images, please wait...</p>
+    </div>
     <ul class="gallery"></ul>
     
   </body>
