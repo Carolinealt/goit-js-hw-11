@@ -1,5 +1,5 @@
-import fetchImg from './js/pixabay-api';
-import addHTML from './js/render-functions';
+import fetchImg from '../src/js/pixabay-api';
+import addHTML from '../src/js/render-functions';
 
 const refs = {
   form: document.querySelector('.main-form'),
