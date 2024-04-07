@@ -1,7 +1,6 @@
 import fetchImg from './js/pixabay-api';
 import addHTML from './js/render-functions';
 
-
 const refs = {
   form: document.querySelector('.main-form'),
   gallery: document.querySelector('.gallery'),
@@ -11,7 +10,9 @@ form.addEventListener('submit', fetchRequest);
 
 function fetchRequest(e) {
   e.preventDefault();
+
   const inputValue = e.target.elements.request.value.trim();
+
   if (!inputValue) {
     return;
   }
@@ -21,13 +22,7 @@ function fetchRequest(e) {
 
 function createElements(inputValue) {
   gallery.innerHTML = '';
-
-  let cardArray;
-  if (!fetchImg(inputValue)) {
-    return;
-  }
-
-  cardArray = fetchImg(inputValue);
-  console.log('из меина', cardArray);
+  let cardArray = fetchImg(inputValue);
+  console.log(cardArray);
   addHTML(cardArray);
 }

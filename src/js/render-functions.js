@@ -1,7 +1,15 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-const gallery = document.querySelector('.gallery');
+const refs = {
+  gallery: document.querySelector('.gallery'),
+  descrLoading: document.querySelector('.main-p'),
+  iconLoading: document.querySelector('.loader'),
+};
+
+const { gallery, descrLoading, iconLoading } = refs;
 
 function createMarkupElement({
   webformatURL,
@@ -43,6 +51,11 @@ function joinArr(arr) {
   return arr.join('');
 }
 
+function toggleDescr() {
+  descrLoading.classList.toggle('dis-active');
+  iconLoading.classList.toggle('dis-active');
+}
+
 function addDOM(str) {
   gallery.insertAdjacentHTML('beforeend', str);
 }
@@ -53,17 +66,42 @@ function addLightBox() {
   a.forEach(element => {
     element.SimpleLightbox;
   });
+  box.refresh();
 }
 
-function addHTML(params) {
-  params
-    .then(({ hits }) => hits)
+function getPromise(prom) {
+  return prom
+    .then(({ hits }) => {
+      if (hits.length === 0) {
+        throw new Error();
+      }
+      toggleDescr();
+      return hits;
+    })
     .then(hits => {
       return hits.map(createMarkupElement);
     })
     .then(joinArr)
     .then(addDOM)
-    .then(addLightBox);
+    .then(addLightBox)
+    .catch(() => {
+      const options = {
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
+        backgroundColor: `#EF4040`,
+        messageColor: 'white',
+        messageSize: `16`,
+        position: 'topRight',
+        messageLineHeight: `88`,
+        class: `ipa`,
+      };
+      iziToast.error(options);
+    });
+}
+
+function addHTML(prom) {
+  toggleDescr();
+  getPromise(prom);
 }
 
 export default addHTML;

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,8 +16,11 @@
         placeholder="Search images..."
       />
       <button class="main-btn" type="submit">Search</button>
-      <p class="main-p dis-active">Loading images, please wait...</p>
     </form>
+    <div class="loader-container">
+      <div class="loader dis-active"></div>
+      <p class="main-p dis-active">Loading images, please wait...</p>
+    </div>
     <ul class="gallery"></ul>
     <script type="module" src="./main.js"></script>
   </body>
