@@ -95,6 +95,7 @@ function getPromise(prom) {
         messageLineHeight: `88`,
         class: `ipa`,
       };
+      toggleDescr();
       iziToast.error(options);
     });
 }
