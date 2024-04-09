@@ -1,17 +1,14 @@
-const options = {
+const searchParams = new URLSearchParams({
   key: `21174821-fd3fd6848262c16aee96184b8`,
   q: '',
   image_type: `photo`,
   orientations: `horizontal`,
   safesearch: true,
-};
-
-const { key, q, image_type, orientations, safesearch } = options;
+});
 
 function createUrl(request) {
-  options.q = request;
-
-  return `https://pixabay.com/api/?key=${key}&q=${options.q}&image_type=${image_type}&orientation=${orientations}&safesearch=${safesearch}`;
+  searchParams.set(`q`, `${request}`);
+  return `https://pixabay.com/api/?${searchParams}`;
 }
 
 function fetchImg(request) {
