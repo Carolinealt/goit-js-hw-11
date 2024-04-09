@@ -23,6 +23,5 @@ function fetchRequest(e) {
 function createElements(inputValue) {
   gallery.innerHTML = '';
   let cardArray = fetchImg(inputValue);
-  console.log(cardArray);
   addHTML(cardArray);
 }
